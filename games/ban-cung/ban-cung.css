@@ -1,0 +1,40 @@
+/* Bắn cung - phần riêng
+   Khi đang chơi (body.dang-choi-cung) trang cao đúng bằng cửa sổ,
+   sân khấu (canvas) lấp đầy phần còn lại. */
+body.dang-choi-cung { height: 100vh; height: 100dvh; overflow: hidden; }
+body.dang-choi-cung .trang-tro-choi { min-height: 0; padding-top: 0; }
+body.dang-choi-cung #khu-tro-choi { padding: clamp(.35rem, 1vw, .7rem); justify-content: flex-start; }
+
+.man-ban-cung { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
+.man-ban-cung .thanh-thong-tin { flex: none; }
+.man-ban-cung .huong-dan { flex: none; margin: .25rem auto .4rem; font-size: clamp(.95rem, 2.4vw, 1.15rem); }
+
+/* Bộ sưu tập thú bông đã bắn được */
+.o-suu-tap { min-width: 0; max-width: 100%; }
+.dai-suu-tap { display: inline-flex; gap: .15rem; min-height: 1.6rem; flex-wrap: nowrap; overflow: hidden; }
+.dai-suu-tap:empty::before { content: "chưa có"; font-weight: 700; font-size: .85rem; color: var(--muc-nhat); }
+.anh-suu-tap { height: 1.6rem; width: auto; object-fit: contain; animation: nay-len .45s ease; }
+
+/* Sân khấu vẽ bằng canvas */
+.san-khau {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  border-radius: clamp(20px, 3vw, 34px);
+  overflow: hidden;
+  background: linear-gradient(180deg, #7cc8ff, #e4f6ff);
+  box-shadow: var(--bong-noi);
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.san-khau canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+  cursor: grab;
+}
+.san-khau canvas.dang-keo { cursor: grabbing; }

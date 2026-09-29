@@ -1,0 +1,6 @@
+/* Đoán con vật - phần riêng */
+.hinh-con-vat { animation: lac-lu 2.4s ease-in-out infinite; }
+.bieu-tuong-tim { font-size: clamp(3.5rem, 12vw, 4.6rem); font-family: var(--font-emoji); }
+.dap-an-ten .nut-dap-an { min-height: 80px; }
+.dap-an-hinh .nut-dap-an { min-height: 118px; }
+@keyframes lac-lu { 50% { transform: rotate(-5deg) scale(1.04); } }

@@ -1,0 +1,70 @@
+/* =========================================================
+   TOÀN MÀN HÌNH - khung trò chơi tràn hết cửa sổ
+   Chỉ dùng trong các trang trò chơi (thư mục games),
+   nạp SAU responsive.css để ghi đè các giới hạn kích thước cũ.
+   ========================================================= */
+
+/* ---------- Khung tràn màn hình (mọi cỡ màn hình) ---------- */
+.trang-tro-choi {
+  max-width: none;
+  width: 100%;
+  padding: 0 clamp(.5rem, 1.5vw, 1.5rem) clamp(.5rem, 1.5vw, 1.2rem);
+}
+
+/* Trang cao đúng bằng cửa sổ: thanh điểm ở trên, khung trò chơi lấp phần còn lại */
+body { display: flex; flex-direction: column; }
+.thanh-trang-thai { flex: none; }
+.trang-tro-choi { flex: 1 1 auto; display: flex; flex-direction: column; }
+
+#khu-tro-choi {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* nội dung nằm giữa khung khi màn hình cao */
+  border-radius: clamp(24px, 3vw, 40px);
+}
+#khu-tro-choi > * { width: 100%; }
+
+/* Đang ở chế độ toàn màn hình: bỏ khoảng đệm thừa */
+:fullscreen .trang-tro-choi,
+:-webkit-full-screen .trang-tro-choi { padding-bottom: clamp(.4rem, 1vw, .8rem); }
+
+/* ---------- Màn hình rộng: chữ và nút to lên theo cửa sổ ---------- */
+@media (min-width: 1000px) {
+  /* mọi cỡ tính bằng rem (chữ, nút, thẻ) to dần theo chiều rộng: 16px -> 26px */
+  html { font-size: clamp(16px, 1.25vw, 26px); }
+
+  .hop-thoai { width: min(94vw, 28rem); }
+  .hop-thoai-rong { width: min(96vw, 42rem); }
+  .khu-thong-bao { width: min(92vw, 26rem); }
+}
+
+/* ---------- Máy tính bảng ngang trở lên: phóng to phần chơi ---------- */
+@media (min-width: 700px) {
+  /* Câu hỏi trắc nghiệm (Học chữ, Đoán con vật, Toán vui, Học số) */
+  .luoi-dap-an { max-width: min(100%, 48rem); }
+  .luoi-dap-an .nut-dap-an { min-height: clamp(96px, 14vh, 180px); }
+  .noi-dung-cau-hoi { min-height: clamp(130px, 22vh, 280px); }
+
+  .cau-hoi { font-size: clamp(1.35rem, 3.6vh, 2.8rem); }
+  .hinh-lon { font-size: clamp(5rem, 22vh, 12rem); }
+  .the-chu-lon { font-size: clamp(4.6rem, 20vh, 10rem); }
+  .luoi-dap-an .nut-dap-an { font-size: clamp(2rem, 6vh, 4.5rem); }
+  .mat-truoc { font-size: clamp(2.4rem, 11vh, 6.5rem); }
+
+  /* Chọn độ khó */
+  .luoi-do-kho { max-width: 70rem; margin-left: auto; margin-right: auto; }
+  .nut-do-kho { min-height: clamp(170px, 26vh, 300px); }
+
+  /* Học số */
+  .nhom-do-vat { max-width: 40rem; }
+
+  /* Lật hình: bỏ giới hạn 104px/thẻ, thẻ to lên vừa chiều cao màn hình */
+  .luoi-the-lat {
+    max-width: none;
+    width: min(100%, max(22rem, calc((100dvh - 21rem) * var(--cot) / var(--hang, var(--cot)))));
+  }
+  .luoi-cap { max-width: min(100%, 50rem); }
+
+}

@@ -1,0 +1,66 @@
+/* =========================================================
+   RESPONSIVE - màn hình rộng, trung bình, điện thoại
+   ========================================================= */
+
+/* Màn hình rộng */
+@media (min-width: 1000px) {
+  .luoi-tro-choi { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Điện thoại */
+@media (max-width: 640px) {
+  .hud-nhan, .chu-nut-am-thanh { display: none; }
+  .nut-am-thanh { width: 48px; justify-content: center; padding: 0; }
+  .hud-o { padding: .25rem .65rem; font-size: 1rem; min-height: 40px; }
+  .hud-bieu-tuong { font-size: 1.15rem; }
+
+  .dau-trang { grid-template-columns: 1fr; text-align: center; margin-bottom: 1.2rem; }
+  .logo { font-size: clamp(2.1rem, 11vw, 3rem); }
+  .nhan-vat { justify-content: center; }
+  .bong-thoai { font-size: 1rem; margin-bottom: .8rem; }
+  .mat-troi-nen { width: 70px; height: 70px; top: 90px; }
+
+  .luoi-tro-choi { grid-template-columns: repeat(2, 1fr); gap: .85rem; }
+  .the-tro-choi { min-height: 150px; padding: 1rem .5rem .9rem; border-radius: 28px; }
+  .the-tro-choi .bieu-tuong { font-size: 3.1rem; }
+  .the-tro-choi .bieu-tuong-anh { height: 78px; }
+  .the-tro-choi .ten { font-size: 1.15rem; }
+  .tien-do-the { font-size: .8rem; padding: .15rem .5rem; }
+  .nhom-nut-trang-chu .nut { min-width: 0; flex: 1 1 140px; }
+
+  #khu-tro-choi { border-radius: 26px; padding: 1rem .8rem 1.4rem; }
+  .luoi-do-kho { grid-template-columns: 1fr; gap: .8rem; }
+  .nut-do-kho { min-height: 0; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; text-align: left; gap: .2rem .7rem; padding: .8rem 1rem; }
+  .dk-mo-ta { text-align: left; width: 100%; padding-left: 3.1rem; margin-top: -.3rem; }
+  .dk-nhan { margin-left: 3.1rem; }
+
+  .luoi-dap-an { gap: .7rem; }
+  .luoi-dap-an.cot-4 { --cot: 2; }
+  .luoi-dap-an.cot-3.dap-an-hinh { --cot: 3; }
+  .nut-dap-an { min-height: 76px; border-radius: 22px; }
+  .nut-dap-an .hinh-nho { font-size: 2.1rem; }
+  .noi-dung-cau-hoi { min-height: 100px; margin-bottom: 1rem; }
+
+  .o-thong-tin { font-size: .95rem; padding: .35rem .8rem; }
+}
+
+@media (max-width: 480px) {
+  .hud-cap { display: none; }
+  .thanh-trang-thai .nut-tron { width: 44px; height: 44px; min-height: 44px; font-size: 1.2rem; }
+  .hud-nhom { gap: .35rem; }
+}
+
+/* Điện thoại rất nhỏ */
+@media (max-width: 360px) {
+  .hud-o { padding: .2rem .5rem; font-size: .95rem; }
+  .luoi-tro-choi { gap: .6rem; }
+  .the-tro-choi .ten { font-size: 1.05rem; }
+}
+
+/* Điện thoại xoay ngang */
+@media (max-height: 500px) and (orientation: landscape) {
+  .thanh-trang-thai { position: static; }
+  .noi-dung-cau-hoi { min-height: 0; }
+  .the-chu-lon { font-size: 3.6rem; }
+  .hinh-lon { font-size: 4rem; }
+}
