@@ -1,0 +1,22 @@
+HUONG DAN PREVIEW WEBSITE TREN DIEN THOAI (GitHub Actions tu dong deploy)
+
+BUOC 1: Dua toan bo thu muc nay len GitHub (giu ca thu muc .github)
+
+BUOC 2: Bat Pages bang GitHub Actions (chi lam 1 lan)
+  - Repo > Settings > Pages
+  - Muc "Build and deployment" > Source: chon "GitHub Actions"
+    (KHONG chon "Deploy from a branch" nua)
+
+BUOC 3: Chay deploy
+  - Repo > tab Actions > "Deploy Preview (GitHub Pages)"
+  - Tu chay sau moi lan push len nhanh main, hoac bam Run workflow de chay tay
+  - Khi co dau tich xanh (khoang 1 phut), bam vao lan chay do:
+    link website hien o muc "deploy" > github-pages
+  - Link co dang: https://TEN_GITHUB.github.io/the-gioi-be-thong-minh/
+
+BUOC 4: Mo link tren dien thoai
+  - Chrome: menu ⋮ > Them vao man hinh chinh
+  - Safari: nut Chia se > Them vao Man hinh chinh
+
+Neu bao loi "Get Pages site failed" hoac "not enabled":
+  vao Settings > Pages va lam lai Buoc 2, roi bam "Re-run jobs".

@@ -1,0 +1,99 @@
+# 🌈 Thế Giới Bé Thông Minh
+
+Trò chơi học tập vui nhộn cho bé, chạy thẳng trên trình duyệt, không cần máy chủ, không cần cài thêm gì.
+
+## Cách chạy
+
+1. Giải nén file .zip.
+2. Mở thư mục vừa giải nén.
+3. Bấm đúp vào file `index.html` (mở bằng Chrome, Edge, Firefox hoặc Safari).
+
+## Các trò chơi
+
+| Trò chơi | Thư mục | Độ khó |
+|---|---|---|
+| 🔤 Học chữ | `games/hoc-chu/` | 🟢 🟡 🔴 |
+| 🔢 Học số | `games/hoc-so/` | 🟢 🟡 🔴 |
+| 🎨 Tô màu | `games/to-mau/` | (không chia độ khó) |
+| 🧩 Ghép hình | `games/ghep-hinh/` | 🟢 🟡 🔴 |
+| 🐶 Đoán con vật | `games/doan-con-vat/` | 🟢 🟡 🔴 |
+| ➕ Toán vui | `games/toan-vui/` | 🟢 🟡 🔴 |
+| 🃏 Lật hình | `games/lat-hinh/` | 50 màn, 5 chặng |
+| 🏹 Bắn cung | `games/ban-cung/` | 🟢 🟡 🔴 |
+| 🐠 Cho cá ăn | `games/cho-ca-an/` | 🟢 🟡 🔴 |
+| 🏎️ Đua xe | `games/dua-xe/` | 🟢 🟡 🔴 |
+
+## Các file dùng chung (thư mục `js/`)
+
+- `luu-tru.js` – nơi DUY NHẤT đọc/ghi dữ liệu (localStorage). Mọi trò chơi đều lưu qua đây.
+- `diem-so.js` – điểm, sao, cấp độ. Đúng 1 câu: +10 điểm. Đúng 3 câu liên tiếp: thưởng +5 điểm. Chơi xong: +5 sao. Không bao giờ trừ điểm.
+- `thanh-tich.js` – danh sách thành tích. Muốn thêm thành tích: thêm 1 dòng vào `DANH_SACH`.
+- `am-thanh.js` – âm thanh tạo bằng trình duyệt (không cần file âm thanh), có nút bật/tắt.
+- `app.js` – thanh điểm phía trên, hộp thoại, màn Thành tích, Cài đặt, hiệu ứng pháo giấy.
+- `tro-choi-chung.js` – màn chọn độ khó, khung câu hỏi trắc nghiệm, màn kết quả.
+- `trang-chu.js` – vẽ trang chủ.
+
+## Sửa nội dung nhanh
+
+- Thêm chữ cái / từ: sửa mảng `CHU_CAI` trong `games/hoc-chu/hoc-chu.js`.
+- Thêm con vật: sửa mảng `CON_VAT` trong `games/doan-con-vat/doan-con-vat.js`.
+- Thêm bức hình ghép: sửa mảng `BUC_HINH` trong `games/ghep-hinh/ghep-hinh.js`.
+- Đổi màu, tên trò chơi trên trang chủ: sửa `DANH_SACH_TRO_CHOI` trong `js/app.js`.
+
+## Lật hình
+
+- 50 màn chia 5 chặng, mỗi chặng 10 màn (2 đến 24 cặp thẻ). Xong màn trước mới mở màn sau. Xong màn cuối của chặng thì mở thêm 10 màn mới.
+- Mỗi màn chấm 1–3 sao theo số lượt lật. Bé chọn chủ đề: Ngẫu nhiên, Con vật, Hoa, Cây trái; hình bốc ngẫu nhiên mỗi lần chơi.
+- Thêm chặng: thêm một dòng vào mảng `CHANG` trong `games/lat-hinh/lat-hinh.js` (10 số cặp + 10 thời gian xem trước).
+- Thêm hình: chép ảnh vuông vào `games/lat-hinh/hinh/` rồi thêm dòng `{ id, ten, nhom }` vào `hinh-lat.js` (id trùng tên file).
+
+## Bắn cung
+
+- Bé chạm vào màn hình, **kéo dây cung về phía sau rồi thả tay**: kéo càng xa mũi tên bay càng mạnh, hướng bắn ngược với hướng kéo. Có chấm ngắm; mức Khó chấm ngắm ngắn hơn.
+- Bóng xuất hiện ngẫu nhiên, 4 loại: **bóng thú bông** (gấu, thỏ, cừu, heo...), bóng màu, bóng trái tim, bóng sao vàng (nhỏ, bay nhanh, thưởng thêm 10 điểm). Bắn trúng bóng thú bông thì thú bông rơi ra và vào "bộ sưu tập" trên thanh thông tin.
+- Trúng 1 bóng: +10 điểm, 3 bóng liên tiếp: thưởng +5 (dùng chung `diem-so.js`). Bắn trượt chỉ mất chuỗi thưởng, không trừ điểm. Số bóng cần trúng: 8 / 12 / 16 theo độ khó. Sao chấm theo số mũi tên đã dùng.
+- Chỉnh độ khó: sửa `CAU_HINH_DO_KHO` trong `games/ban-cung/ban-cung.js`. Thêm thú bông: chép ảnh vào `assets/images/` rồi thêm dòng `{ id, ten }` vào `THU_BONG`.
+
+## Cho cá ăn
+
+- Bé chọn món ở khay phía dưới (🦐 tôm, 🥬 rau, 🍞 bánh mì) rồi **chạm vào nước** để thả mồi. Mồi chìm dần, cá đúng món sẽ bơi tới ăn.
+- Mỗi bạn cá có bong bóng ghi **món mình thích** và các **chấm vàng** = số viên cần ăn. Ăn đủ thì cá no bụng, phát sáng. Nút món ăn có số nhỏ cho biết còn mấy bạn đang đói món đó.
+- Mỗi viên cá ăn: +10 điểm, 3 viên liên tiếp thưởng +5 (dùng chung `diem-so.js`). Cá no bụng: thưởng thêm +10. Mồi chìm xuống cát chỉ mất chuỗi thưởng, không trừ điểm. Sao chấm theo số viên đã thả.
+- Chỉnh độ khó: sửa `CAU_HINH_DO_KHO` trong `games/cho-ca-an/cho-ca-an.js` (số cá, số viên mỗi cá cần, số món, tốc độ bơi). Thêm cá: chép ảnh vào `assets/images/` rồi thêm dòng `{ id, ten, huong, rong }` vào `LOAI_CA` (`huong` = -1 nếu ảnh quay đầu sang trái). Thêm món ăn: thêm vào `MON_AN`.
+
+## Đua xe
+
+- Bé chọn xe (8 xe), rồi lái xe chạy trên đường nhiều làn (3 làn ở mức Dễ / Trung bình, 4 làn ở mức Khó). **Chạm hoặc kéo ngón tay vào làn đường** để đổi làn; cũng có nút ⬆️ ⬇️ và phím mũi tên (hoặc W / S). Có đếm ngược 3-2-1-Đi trước khi xe chạy.
+- Vật cản: các bạn con vật đứng giữa đường, nón giao thông và (từ mức Trung bình) xe chạy ngược chiều. Mỗi đợt vật cản luôn chừa ít nhất một làn trống. Hàng ⭐ xuất hiện ở làn trống.
+- Nhặt 1 sao: +10 điểm, 3 sao liên tiếp thưởng +5 (dùng chung `diem-so.js`). Về đích: +10 điểm. **Đụng vật cản không trừ điểm**: xe chỉ chậm lại một chút, mất chuỗi thưởng. Sao chấm theo số lần va chạm (0 lần = 3 sao, 1–2 lần = 2 sao, nhiều hơn = 1 sao).
+- Chỉnh độ khó: sửa `CAU_HINH_DO_KHO` trong `games/dua-xe/dua-xe.js` (số làn, tốc độ, độ dài đường đua, khoảng cách giữa các đợt vật cản, tỉ lệ xe ngược chiều). Thêm xe: chép ảnh (đầu xe quay sang TRÁI, game tự lật lại khi vẽ) vào `assets/images/` rồi thêm dòng `{ id, ten }` vào `XE`. Thêm vật cản: thêm dòng `{ id, ten, cao }` vào `VAT_CAN`.
+- Thành tích mới: Tay lái lụa, Lái xe an toàn, Tay đua siêu hạng.
+- Ảnh cây ven đường là bản đã tách nền riêng cho game này, nằm ngay trong `games/dua-xe/` (`cay-dua.png`, `cay-cam.png`, `cay-xoai.png`).
+
+## Tô màu
+
+- 19 tranh nằm trong `games/to-mau/tranh-to-mau.js`, nhúng sẵn dạng ảnh PNG để tô được khi mở thẳng `index.html`.
+- Tranh mới nên là nét đen nền trắng, hình vuông, nét liền kín.
+
+## Icon trò chơi
+
+Icon nằm ở `assets/icons/tro-choi/<id>.png` (nền trong suốt). Thay file cùng tên là đổi icon.
+
+## Toàn màn hình
+
+- Khung trò chơi tràn hết cửa sổ, tự co giãn theo cỡ màn hình (`css/toan-man-hinh.css`, nạp cuối cùng trong mỗi trang trò chơi).
+- Nút 🖥️ **Toàn màn hình** nằm trên thanh điểm (mã ở `js/app.js`, mục "Toàn màn hình"). Trình duyệt tự thoát toàn màn hình khi chuyển trang, nên lựa chọn của bé được nhớ (`caiDat.toanManHinh`) và tự vào lại ở lần chạm đầu tiên trên trang mới.
+- iPhone Safari không hỗ trợ toàn màn hình cho trang web nên nút tự ẩn.
+
+## Ghi chú
+
+- Dữ liệu chỉ lưu trên máy đang chơi. Xóa dữ liệu trình duyệt thì tiến trình cũng mất.
+- Muốn chơi lại từ đầu: Trang chủ → ⚙️ Cài đặt → 🧹 Chơi lại từ đầu.
+- Dự án chỉ dùng HTML, CSS, JavaScript thuần nên có thể đóng gói bằng Capacitor sau này.
+
+## Ảnh trong trò chơi
+
+- Toàn bộ hình minh họa nằm ở `assets/images/<id>.png` (ảnh do bạn cung cấp, nền đã làm trong suốt). Trong code, viết `':id:'` (ví dụ `':cho:'`) ở chỗ cần hình; `js/anh.js` tự đổi thành ảnh.
+- Ghép hình dùng ảnh dựng sẵn ở `assets/images/ghep/<id>.png`; Lật hình dùng ảnh ở `games/lat-hinh/hinh/`.
+- Chưa có ảnh cho các chữ A, Ă, Â, E, I, P, U, Y nên Học chữ tạm chưa có các chữ này.
+- Tô màu vẫn dùng tranh nét đen cũ (bộ ảnh mẫu không có tranh tô).

@@ -1,0 +1,34 @@
+HUONG DAN DUA WEBSITE LEN GITHUB PAGES (chay tren dien thoai, khong can APK)
+
+BUOC 1: Tao repo tren github.com
+  - Bam dau + > New repository
+  - Dat ten: the-gioi-be-thong-minh
+  - Chon Public, KHONG tick them README, bam Create repository
+
+BUOC 2: Dua code len (chon 1 trong 2 cach)
+
+  Cach A - Bang may tinh (can cai Git):
+    - Giai nen file zip nay
+    - Windows: bam dup file dua-len-github.bat
+      Mac/Linux: mo terminal, chay ./dua-len-github.sh
+    - Dan link repo khi duoc hoi (vd: https://github.com/tenban/the-gioi-be-thong-minh.git)
+
+  Cach B - Khong can Git (lam tren web/dien thoai):
+    - Trong repo bam "uploading an existing file"
+    - Giai nen zip, keo tha TOAN BO noi dung (index.html, css, js, games, assets, .nojekyll)
+    - index.html phai nam o GOC repo
+    - Bam Commit changes
+
+BUOC 3: Bat GitHub Pages
+  - Repo > Settings > Pages
+  - Source: Deploy from a branch
+  - Branch: main, thu muc / (root) > Save
+  - Cho 1-2 phut, link se hien:
+    https://TEN_GITHUB.github.io/the-gioi-be-thong-minh/
+
+BUOC 4: Mo link tren dien thoai
+  - Chrome: menu ⋮ > Them vao man hinh chinh
+  - Safari: nut Chia se > Them vao Man hinh chinh
+
+Cap nhat sau nay: sua code roi chay lai file dua-len-github, hoac upload de len GitHub.
+Luu y: diem so luu theo tung thiet bi (localStorage), khong dong bo may tinh <-> dien thoai.

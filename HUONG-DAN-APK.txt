@@ -1,0 +1,25 @@
+HUONG DAN TAO FILE APK (GitHub tu build, khong can cai Android Studio)
+
+BUOC 1: Dua toan bo thu muc nay len GitHub (giu nguyen thu muc .github)
+  - Lam theo HUONG-DAN-GITHUB.txt (bat file dua-len-github.bat la xong)
+  - Neu upload bang web: nho upload ca thu muc .github/workflows/build-apk.yml
+
+BUOC 2: Cho GitHub build
+  - Vao repo > tab "Actions"
+  - Workflow "Build APK" se tu chay sau moi lan push (mat khoang 5-8 phut)
+  - Muon chay tay: chon "Build APK" > Run workflow
+
+BUOC 3: Tai APK
+  - Bam vao lan chay co dau tich xanh
+  - Keo xuong muc "Artifacts" > tai "the-gioi-be-thong-minh-apk" (file zip)
+  - Giai nen se co app-debug.apk
+
+BUOC 4: Cai len dien thoai Android
+  - Gui app-debug.apk qua Zalo/Drive/cap USB
+  - Mo file, cho phep "Cai ung dung tu nguon khong xac dinh" khi duoc hoi
+  - Bam Cai dat
+
+Luu y:
+  - Day la ban debug, cai tren may ca nhan duoc, KHONG dung de dang Google Play.
+  - iPhone khong cai duoc APK; dung link GitHub Pages va "Them vao man hinh chinh".
+  - Neu build loi, vao Actions > bam vao lan chay loi > gui dong loi do cho minh.
