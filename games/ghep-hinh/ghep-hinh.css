@@ -1,0 +1,85 @@
+/* Ghép hình - phần riêng */
+.hinh-mau-nho img { width: 34px; height: 34px; border-radius: 8px; }
+.man-ghep-hinh .huong-dan { margin: .8rem auto; }
+.vung-ghep {
+  --kt: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.2rem 30px;
+}
+.ban-ghep {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--n), var(--kt));
+  grid-auto-rows: var(--kt);
+  gap: 4px;
+  padding: 8px;
+  border-radius: 20px;
+  background: #ece7f8;
+  transition: gap .4s ease;
+}
+.ban-ghep.co-hinh-mo::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 10px;
+  background-image: var(--anh);
+  background-size: 100% 100%;
+  opacity: .3;
+  pointer-events: none;
+}
+.o-ghep {
+  position: relative;
+  border: 3px dashed #c4b8e6;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .5);
+}
+.o-ghep.da-co { border: none; }
+.o-ghep.lac { animation: lac .4s ease; border-color: var(--do); }
+.ban-ghep.hoan-thanh { gap: 0; }
+.ban-ghep.hoan-thanh .manh-ghep { border-radius: 0; box-shadow: none; }
+
+.khay-manh {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  gap: 8px;
+  max-width: calc(var(--n) * var(--kt) + (var(--n) - 1) * 8px + 20px);
+  padding: 10px;
+  border-radius: 20px;
+  background: #fff7e0;
+  min-height: calc(var(--kt) + 20px);
+}
+.manh-ghep {
+  width: var(--kt);
+  height: var(--kt);
+  padding: 0;
+  border: 3px solid #fff;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 0 rgba(43, 35, 80, .2);
+  touch-action: none;
+  transition: transform .1s ease;
+}
+.manh-ghep.dang-chon { outline: 5px solid var(--nho); outline-offset: 2px; transform: scale(1.06); }
+.manh-ghep.an-tam { opacity: .25; }
+.manh-ghep.da-dat {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  cursor: default;
+  box-shadow: none;
+}
+.manh-dang-keo {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 180;
+  pointer-events: none;
+  box-shadow: 0 14px 24px rgba(43, 35, 80, .3);
+}
