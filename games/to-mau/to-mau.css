@@ -1,0 +1,122 @@
+/* =========================================================
+   Tô màu - phần riêng
+   Màn 1: lưới chọn tranh   |   Màn 2: chỉ có tranh + công cụ gọn
+   ========================================================= */
+
+/* ---------- Màn 1: chọn tranh ---------- */
+.luoi-tranh {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 9.5rem), 1fr));
+  gap: 1rem;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+.the-tranh {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .35rem;
+  padding: .5rem .5rem .7rem;
+  border: 4px solid #f1e8fb;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 5px 0 #e6dcf5;
+  color: var(--muc);
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform .1s ease, border-color .1s ease;
+}
+.the-tranh img { width: 100%; aspect-ratio: 1; object-fit: contain; border-radius: 16px; background: #fff; pointer-events: none; }
+.the-tranh:hover, .the-tranh:focus-visible { border-color: var(--mau-tro-choi); transform: translateY(-3px); }
+.the-tranh:active { transform: translateY(2px); box-shadow: 0 1px 0 #e6dcf5; }
+.ten-tranh { font-size: 1.05rem; text-align: center; line-height: 1.2; }
+.dau-xong {
+  position: absolute; top: .4rem; right: .4rem;
+  width: 1.8rem; height: 1.8rem;
+  display: grid; place-items: center;
+  border-radius: 50%; background: var(--xanh); color: #fff;
+  font-size: 1.05rem; font-weight: 900;
+  box-shadow: 0 2px 0 rgba(43, 35, 80, .2);
+}
+
+/* ---------- Màn 2: tô tranh ---------- */
+/* Ẩn mọi thứ thừa: thanh điểm, tiêu đề, khung trắng bao ngoài */
+body.dang-to .thanh-trang-thai { display: none; }
+body.dang-to .trang-tro-choi { padding: 0; }
+body.dang-to #khu-tro-choi {
+  padding: .4rem;
+  border-top: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  justify-content: center;
+}
+
+.man-to {
+  --lon: min(calc(100vw - 11.5rem), calc(100dvh - 1rem)); /* cạnh tranh: to nhất có thể */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .7rem;
+}
+.to-khung {
+  flex: none;
+  position: relative;
+  width: var(--lon);
+  height: var(--lon);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--bong-noi);
+}
+.to-khung canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+#lop-net { touch-action: none; cursor: crosshair; }
+
+.to-cong-cu { flex: none; width: 10.6rem; display: flex; flex-direction: column; gap: .7rem; }
+.to-nut { display: grid; grid-template-columns: repeat(3, 1fr); gap: .4rem; }
+.to-btn {
+  min-height: 2.9rem;
+  padding: 0;
+  border: 3px solid #eee7fa;
+  border-radius: 14px;
+  background: #fff;
+  font-size: 1.4rem;
+  line-height: 1;
+  font-family: var(--font-emoji);
+  cursor: pointer;
+  box-shadow: 0 3px 0 rgba(43, 35, 80, .12);
+}
+.to-btn:active { transform: translateY(2px); box-shadow: none; }
+.to-btn.dang-chon { border-color: var(--mau-tro-choi); background: #ffeef7; }
+.to-xong { grid-column: 1 / -1; border-color: var(--xanh); background: var(--xanh); color: #fff; }
+
+.bang-mau { display: grid; grid-template-columns: repeat(3, 1fr); gap: .45rem; justify-items: center; }
+.o-mau {
+  width: 100%;
+  max-width: 3rem;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 3px solid rgba(43, 35, 80, .18);
+  border-radius: 50%;
+  background: var(--mau);
+  cursor: pointer;
+}
+.o-mau.dang-chon { border: 4px solid var(--muc); transform: scale(1.12); box-shadow: 0 0 0 3px #fff inset; }
+
+.anh-tranh-xong { width: min(100%, 240px); border-radius: 18px; margin: .6rem auto; display: block; box-shadow: var(--bong-noi); }
+
+/* ---------- Màn dọc (điện thoại, máy tính bảng dọc): công cụ nằm dưới tranh ---------- */
+@media (orientation: portrait) {
+  .man-to {
+    --lon: min(calc(100vw - .8rem), calc(100dvh - 9.6rem));
+    flex-direction: column;
+    gap: .5rem;
+  }
+  .to-cong-cu { width: min(100%, 32rem); gap: .45rem; }
+  .to-nut { grid-template-columns: repeat(6, 1fr); }
+  .to-xong { grid-column: auto; }
+  .bang-mau { grid-template-columns: repeat(7, 1fr); }
+  .to-btn { min-height: 2.6rem; }
+}
