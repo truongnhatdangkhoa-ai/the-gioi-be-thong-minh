@@ -3,7 +3,7 @@ name: Deploy Preview (GitHub Pages)
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [main, kho-anan]
 
 permissions:
   contents: read
