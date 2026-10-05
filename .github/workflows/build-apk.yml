@@ -30,6 +30,30 @@ jobs:
             --exclude='dua-len-github.*' --exclude='HUONG-DAN-*' \
             ./ www/
 
+
+      - name: Tao version.json va danh sach file cho offline
+        run: |
+          cd www
+          node -e "
+          const fs=require('fs'),path=require('path');
+          const ds=[];
+          (function duyet(d){for(const t of fs.readdirSync(d)){const p=path.join(d,t);
+            if(fs.statSync(p).isDirectory())duyet(p);else ds.push(p.split(path.sep).join('/'));}})('.');
+          const bo=['sw-files.json','version.json','sw.js'];
+          fs.writeFileSync('sw-files.json',JSON.stringify(ds.filter(f=>!bo.includes(f)&&!f.endsWith('.nojekyll'))));
+          fs.writeFileSync('version.json',JSON.stringify({phienBan:'${{ github.sha }}-${{ github.run_number }}'}));
+          "
+
+      - name: Tro APK vao trang GitHub Pages (de tu cap nhat)
+        run: |
+          node -e "
+          const fs=require('fs');
+          const c=JSON.parse(fs.readFileSync('capacitor.config.json','utf8'));
+          c.server={url:'https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/',androidScheme:'https'};
+          fs.writeFileSync('capacitor.config.json',JSON.stringify(c,null,2));
+          "
+          cat capacitor.config.json
+
       - name: Cai Capacitor
         run: npm install
 
