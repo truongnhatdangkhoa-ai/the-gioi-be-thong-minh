@@ -26,7 +26,9 @@ const ThanhTich = (function () {
     { id: 'tay-dua-sieu-hang', bieuTuong: '🥇', ten: 'Tay đua siêu hạng', moTa: 'Về đích Đua xe ở mức Khó', dieuKien: function (d) { const tc = d.troChoi['dua-xe']; return !!(tc && tc.doKhoDaXong && tc.doKhoDaXong.kho); } },
     { id: 'dau-bep-nhi', bieuTuong: '🧁', ten: 'Đầu bếp nhí', moTa: 'Làm xong một món ở Tiệm kẹo – bánh – kem', dieuKien: function (d) { return daXong(d, 'tiem-keo-banh-kem'); } },
     { id: 'tho-xep-khoi', bieuTuong: '🧱', ten: 'Thợ xếp khối', moTa: 'Thắng một màn Xếp hình khối', dieuKien: function (d) { return daXong(d, 'xep-hinh-khoi'); } },
-    { id: 'kien-truc-su-nhi', bieuTuong: '🏗️', ten: 'Kiến trúc sư nhí', moTa: 'Thắng Xếp hình khối ở mức Khó', dieuKien: function (d) { const tc = d.troChoi['xep-hinh-khoi']; return !!(tc && tc.doKhoDaXong && tc.doKhoDaXong.kho); } }
+    { id: 'kien-truc-su-nhi', bieuTuong: '🏗️', ten: 'Kiến trúc sư nhí', moTa: 'Thắng Xếp hình khối ở mức Khó', dieuKien: function (d) { const tc = d.troChoi['xep-hinh-khoi']; return !!(tc && tc.doKhoDaXong && tc.doKhoDaXong.kho); } },
+    { id: 'tho-me-cung', bieuTuong: '🧭', ten: 'Thợ săn mê cung', moTa: 'Vượt xong một lượt Vượt mê cung', dieuKien: function (d) { return daXong(d, 'vuot-me-cung'); } },
+    { id: 'vua-me-cung', bieuTuong: '🧙', ten: 'Vua mê cung', moTa: 'Vượt xong Vượt mê cung ở mức Khó', dieuKien: function (d) { const tc = d.troChoi['vuot-me-cung']; return !!(tc && tc.doKhoDaXong && tc.doKhoDaXong.kho); } }
   ];
 
   function kiemTra() {

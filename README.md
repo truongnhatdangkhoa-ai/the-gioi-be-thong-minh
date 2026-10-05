@@ -20,6 +20,7 @@ Trò chơi học tập vui nhộn cho bé, chạy thẳng trên trình duyệt, 
 | 🏎️ Đua xe | `games/dua-xe/` | 🟢 🟡 🔴 |
 | 🍭 Tiệm kẹo – bánh – kem | `games/tiem-keo-banh-kem/` | (không chia độ khó) |
 | 🧱 Xếp hình khối (Block Puzzle) | `games/xep-hinh-khoi/` | 🟢 🟡 🔴 |
+| 🧭 Vượt mê cung | `games/vuot-me-cung/` | 🟢 🟡 🔴 (5 màn, mỗi màn mê cung + nền mới) |
 
 ## Các file dùng chung (thư mục `js/`)
 
