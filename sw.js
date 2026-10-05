@@ -1,6 +1,6 @@
 /* Service Worker - giúp app chạy offline và LUÔN lấy bản mới nhất khi có mạng.
    Cách hoạt động: có mạng -> tải bản mới (và lưu lại); mất mạng -> dùng bản đã lưu. */
-const TEN_BO_NHO = 'the-gioi-be-thong-minh-v1';
+const TEN_BO_NHO = 'the-gioi-be-thong-minh-v3';
 const CHO_MANG_TOI_DA = 4000; // ms: mạng chậm quá thì dùng bản đã lưu
 
 self.addEventListener('install', function (e) {

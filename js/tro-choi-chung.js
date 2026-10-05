@@ -1,9 +1,8 @@
 /* =========================================================
    KHUNG TRÒ CHƠI DÙNG CHUNG
    - Màn chọn độ khó
-   - Chạy chuỗi câu hỏi trắc nghiệm (Học chữ, Học số,
-     Đoán con vật, Toán vui dùng chung)
    - Màn kết quả
+   - Các hàm dùng chung cho trò chơi
    Mỗi trò chơi chỉ cần khai báo "cấu hình" và hàm tạo câu hỏi.
    ========================================================= */
 const TroChoiChung = (function () {

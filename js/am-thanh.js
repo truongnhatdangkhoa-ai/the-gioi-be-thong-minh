@@ -114,15 +114,6 @@ const AmThanh = (function () {
       [1047, 1319, 1568, 2093].forEach(function (f, i) { not(ba, f, t + i * 0.06, 0.16, 'triangle', 0.1); });
     },
     truot: function (ba, t) { not(ba, 300, t, 0.1, 'sine', 0.06); },
-    // Cho cá ăn: thả mồi xuống nước, cá ăn mồi
-    thaMoi: function (ba, t) {
-      not(ba, 620, t, 0.05, 'sine', 0.07);
-      not(ba, 420, t + 0.05, 0.08, 'sine', 0.05);
-    },
-    anMoi: function (ba, t) {
-      not(ba, 330, t, 0.05, 'triangle', 0.1);
-      not(ba, 494, t + 0.06, 0.08, 'triangle', 0.1);
-    },
     // Đua xe: xe đụng vật cản (tiếng "bộp" trầm, nhẹ nhàng)
     vaCham: function (ba, t) {
       not(ba, 150, t, 0.16, 'triangle', 0.14);

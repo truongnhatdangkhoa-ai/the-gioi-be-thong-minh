@@ -12,16 +12,11 @@ Trò chơi học tập vui nhộn cho bé, chạy thẳng trên trình duyệt, 
 
 | Trò chơi | Thư mục | Độ khó |
 |---|---|---|
-| 🔤 Học chữ | `games/hoc-chu/` | 🟢 🟡 🔴 |
-| 🔢 Học số | `games/hoc-so/` | 🟢 🟡 🔴 |
 | 🎨 Tô màu | `games/to-mau/` | (không chia độ khó) |
 | 🧩 Ghép hình | `games/ghep-hinh/` | 🟢 🟡 🔴 |
-| 🐶 Đoán con vật | `games/doan-con-vat/` | 🟢 🟡 🔴 |
-| ➕ Toán vui | `games/toan-vui/` | 🟢 🟡 🔴 |
 | 🃏 Lật hình | `games/lat-hinh/` | 50 màn, 5 chặng |
 | 🏹 Bắn cung | `games/ban-cung/` | 🟢 🟡 🔴 |
 | 🏹 Bắn nỏ (màn hình dọc) | `games/ban-no/` | 10 màn, mỗi màn 2 phút |
-| 🐠 Cho cá ăn | `games/cho-ca-an/` | 🟢 🟡 🔴 |
 | 🏎️ Đua xe | `games/dua-xe/` | 🟢 🟡 🔴 |
 | 🍭 Tiệm kẹo – bánh – kem | `games/tiem-keo-banh-kem/` | (không chia độ khó) |
 
@@ -32,13 +27,11 @@ Trò chơi học tập vui nhộn cho bé, chạy thẳng trên trình duyệt, 
 - `thanh-tich.js` – danh sách thành tích. Muốn thêm thành tích: thêm 1 dòng vào `DANH_SACH`.
 - `am-thanh.js` – âm thanh tạo bằng trình duyệt (không cần file âm thanh), có nút bật/tắt.
 - `app.js` – thanh điểm phía trên, hộp thoại, màn Thành tích, Cài đặt, hiệu ứng pháo giấy.
-- `tro-choi-chung.js` – màn chọn độ khó, khung câu hỏi trắc nghiệm, màn kết quả.
+- `tro-choi-chung.js` – màn chọn độ khó, màn kết quả và các hàm dùng chung cho trò chơi.
 - `trang-chu.js` – vẽ trang chủ.
 
 ## Sửa nội dung nhanh
 
-- Thêm chữ cái / từ: sửa mảng `CHU_CAI` trong `games/hoc-chu/hoc-chu.js`.
-- Thêm con vật: sửa mảng `CON_VAT` trong `games/doan-con-vat/doan-con-vat.js`.
 - Thêm bức hình ghép: sửa mảng `BUC_HINH` trong `games/ghep-hinh/ghep-hinh.js`.
 - Đổi màu, tên trò chơi trên trang chủ: sửa `DANH_SACH_TRO_CHOI` trong `js/app.js`.
 
@@ -69,13 +62,6 @@ Trò chơi học tập vui nhộn cho bé, chạy thẳng trên trình duyệt, 
 - Ảnh nỏ và mũi tên: `games/ban-no/no.png`, `games/ban-no/mui-ten.png` (đã tách nền; mũi tên có đầu bi vàng hướng lên). Thay file cùng tên là đổi hình.
 - Thử nhanh: thêm `?gio=15` vào địa chỉ trang để mỗi màn chỉ chơi 15 giây.
 - Thành tích mới: Thợ săn bắn nỏ, Thần nỏ (qua cả 10 màn).
-
-## Cho cá ăn
-
-- Bé chọn món ở khay phía dưới (🦐 tôm, 🥬 rau, 🍞 bánh mì) rồi **chạm vào nước** để thả mồi. Mồi chìm dần, cá đúng món sẽ bơi tới ăn.
-- Mỗi bạn cá có bong bóng ghi **món mình thích** và các **chấm vàng** = số viên cần ăn. Ăn đủ thì cá no bụng, phát sáng. Nút món ăn có số nhỏ cho biết còn mấy bạn đang đói món đó.
-- Mỗi viên cá ăn: +10 điểm, 3 viên liên tiếp thưởng +5 (dùng chung `diem-so.js`). Cá no bụng: thưởng thêm +10. Mồi chìm xuống cát chỉ mất chuỗi thưởng, không trừ điểm. Sao chấm theo số viên đã thả.
-- Chỉnh độ khó: sửa `CAU_HINH_DO_KHO` trong `games/cho-ca-an/cho-ca-an.js` (số cá, số viên mỗi cá cần, số món, tốc độ bơi). Thêm cá: chép ảnh vào `assets/images/` rồi thêm dòng `{ id, ten, huong, rong }` vào `LOAI_CA` (`huong` = -1 nếu ảnh quay đầu sang trái). Thêm món ăn: thêm vào `MON_AN`.
 
 ## Đua xe
 
@@ -111,7 +97,6 @@ Icon nằm ở `assets/icons/tro-choi/<id>.png` (nền trong suốt). Thay file 
 
 - Toàn bộ hình minh họa nằm ở `assets/images/<id>.png` (ảnh do bạn cung cấp, nền đã làm trong suốt). Trong code, viết `':id:'` (ví dụ `':cho:'`) ở chỗ cần hình; `js/anh.js` tự đổi thành ảnh.
 - Ghép hình dùng ảnh dựng sẵn ở `assets/images/ghep/<id>.png`; Lật hình dùng chung ảnh ở `assets/images/`.
-- Chưa có ảnh cho các chữ A, Ă, Â, E, I, P, U, Y nên Học chữ tạm chưa có các chữ này.
 - Tô màu vẫn dùng tranh nét đen cũ (bộ ảnh mẫu không có tranh tô).
 
 ## Tiệm kẹo – bánh – kem

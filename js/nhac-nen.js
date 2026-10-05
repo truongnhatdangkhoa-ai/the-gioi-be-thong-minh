@@ -22,17 +22,12 @@ const NhacNen = (function () {
      trong: 0 không | 1 tiếng gõ nhẹ | 2 trống nhẹ    mat: độ dày nốt giai điệu (thua | vua | day) */
   const PHONG_CACH = {
     'trang-chu':          { goc: 48, thang: 'major',  bpm: 104, nhip: 4, tien: [0, 4, 5, 3, 0, 4, 3, 0], giaiDieu: 'hop',     dem: 'arp', bass: 'chac', trong: 1, swing: 0,    echo: false, mat: 'vua',  hat: 11 },
-    'hoc-chu':            { goc: 50, thang: 'major',  bpm: 88,  nhip: 4, tien: [0, 5, 3, 4, 0, 3, 4, 0], giaiDieu: 'marimba', dem: 'pad', bass: 'chac', trong: 0, swing: 0,    echo: false, mat: 'thua', hat: 23 },
-    'hoc-so':             { goc: 55, thang: 'major',  bpm: 100, nhip: 4, tien: [0, 3, 4, 0, 0, 5, 4, 0], giaiDieu: 'pluck',   dem: 'none', bass: 'nay', trong: 1, swing: 0.12, echo: false, mat: 'vua',  hat: 37 },
     'to-mau':             { goc: 53, thang: 'major',  bpm: 80,  nhip: 3, tien: [0, 5, 3, 4, 0, 5, 1, 4], giaiDieu: 'celesta', dem: 'arp', bass: 'chac', trong: 0, swing: 0,    echo: true,  mat: 'thua', hat: 41 },
     'ghep-hinh':          { goc: 50, thang: 'major',  bpm: 84,  nhip: 4, tien: [0, 2, 3, 0, 0, 5, 3, 4], giaiDieu: 'hop',     dem: 'pad', bass: 'chac', trong: 0, swing: 0,    echo: true,  mat: 'thua', hat: 53 },
-    'doan-con-vat':       { goc: 48, thang: 'major',  bpm: 112, nhip: 4, tien: [0, 0, 3, 0, 0, 4, 3, 0], giaiDieu: 'marimba', dem: 'none', bass: 'nay', trong: 1, swing: 0.2,  echo: false, mat: 'vua',  hat: 67 },
     'lat-hinh':           { goc: 58, thang: 'major',  bpm: 96,  nhip: 4, tien: [0, 5, 1, 4, 0, 3, 4, 0], giaiDieu: 'pluck',   dem: 'arp', bass: 'chac', trong: 0, swing: 0.1,  echo: false, mat: 'vua',  hat: 71 },
     'ban-cung':           { goc: 50, thang: 'major',  bpm: 112, nhip: 4, tien: [0, 4, 5, 3, 0, 4, 3, 4], giaiDieu: 'pluck',   dem: 'pad', bass: 'nay', trong: 2, swing: 0,    echo: false, mat: 'day',  hat: 83 },
     'ban-no':             { goc: 57, thang: 'mixo',   bpm: 120, nhip: 4, tien: [0, 6, 3, 0, 0, 6, 4, 0], giaiDieu: 'marimba', dem: 'none', bass: 'nay', trong: 2, swing: 0,    echo: false, mat: 'day',  hat: 97 },
-    'cho-ca-an':          { goc: 53, thang: 'lydian', bpm: 72,  nhip: 4, tien: [0, 1, 0, 4, 0, 1, 3, 4], giaiDieu: 'hop',     dem: 'pad', bass: 'none', trong: 0, swing: 0,    echo: true,  mat: 'thua', hat: 101 },
     'dua-xe':             { goc: 48, thang: 'major',  bpm: 128, nhip: 4, tien: [0, 3, 4, 3, 0, 5, 4, 4], giaiDieu: 'pluck',   dem: 'none', bass: 'nay', trong: 2, swing: 0,    echo: false, mat: 'day',  hat: 113 },
-    'toan-vui':           { goc: 55, thang: 'major',  bpm: 108, nhip: 3, tien: [0, 4, 5, 3, 0, 3, 4, 0], giaiDieu: 'marimba', dem: 'none', bass: 'chac', trong: 1, swing: 0,    echo: false, mat: 'vua',  hat: 127 },
     'tiem-keo-banh-kem':  { goc: 51, thang: 'major',  bpm: 100, nhip: 4, tien: [0, 5, 1, 4, 0, 5, 3, 4], giaiDieu: 'celesta', dem: 'arp', bass: 'nay', trong: 1, swing: 0.25, echo: false, mat: 'vua',  hat: 131 }
   };
 
