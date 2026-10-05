@@ -13,7 +13,8 @@ const App = (function () {
     { id: 'ban-cung', ten: 'Bắn cung', bieuTuong: '🏹', mau: '#e5484d', mauBong: '#b3282d', coDoKho: true },
     { id: 'ban-no', ten: 'Bắn nỏ', bieuTuong: '🏹', mau: '#d946ef', mauBong: '#a21caf', coDoKho: false, nhanTienDo: '🎯 Đã qua {n}/10 màn', truongTienDo: 'daQuaMan' },
     { id: 'dua-xe', ten: 'Đua xe', bieuTuong: '🏎️', mau: '#6366f1', mauBong: '#4648c9', coDoKho: true },
-    { id: 'tiem-keo-banh-kem', ten: 'Tiệm kẹo – bánh – kem', bieuTuong: '🍭', mau: '#f59e0b', mauBong: '#c27803', coDoKho: false, nhanTienDo: '🧁 Đã làm {n} món' }
+    { id: 'tiem-keo-banh-kem', ten: 'Tiệm kẹo – bánh – kem', bieuTuong: '🍭', mau: '#f59e0b', mauBong: '#c27803', coDoKho: false, nhanTienDo: '🧁 Đã làm {n} món' },
+    { id: 'xep-hinh-khoi', ten: 'Xếp hình khối', bieuTuong: '🧱', mau: '#06b6d4', mauBong: '#0891b2', coDoKho: true }
   ];
 
   let duongDanGoc = '';

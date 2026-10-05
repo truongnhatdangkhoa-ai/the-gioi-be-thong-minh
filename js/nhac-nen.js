@@ -28,7 +28,8 @@ const NhacNen = (function () {
     'ban-cung':           { goc: 50, thang: 'major',  bpm: 112, nhip: 4, tien: [0, 4, 5, 3, 0, 4, 3, 4], giaiDieu: 'pluck',   dem: 'pad', bass: 'nay', trong: 2, swing: 0,    echo: false, mat: 'day',  hat: 83 },
     'ban-no':             { goc: 57, thang: 'mixo',   bpm: 120, nhip: 4, tien: [0, 6, 3, 0, 0, 6, 4, 0], giaiDieu: 'marimba', dem: 'none', bass: 'nay', trong: 2, swing: 0,    echo: false, mat: 'day',  hat: 97 },
     'dua-xe':             { goc: 48, thang: 'major',  bpm: 128, nhip: 4, tien: [0, 3, 4, 3, 0, 5, 4, 4], giaiDieu: 'pluck',   dem: 'none', bass: 'nay', trong: 2, swing: 0,    echo: false, mat: 'day',  hat: 113 },
-    'tiem-keo-banh-kem':  { goc: 51, thang: 'major',  bpm: 100, nhip: 4, tien: [0, 5, 1, 4, 0, 5, 3, 4], giaiDieu: 'celesta', dem: 'arp', bass: 'nay', trong: 1, swing: 0.25, echo: false, mat: 'vua',  hat: 131 }
+    'tiem-keo-banh-kem':  { goc: 51, thang: 'major',  bpm: 100, nhip: 4, tien: [0, 5, 1, 4, 0, 5, 3, 4], giaiDieu: 'celesta', dem: 'arp', bass: 'nay', trong: 1, swing: 0.25, echo: false, mat: 'vua',  hat: 131 },
+    'xep-hinh-khoi':      { goc: 55, thang: 'lydian', bpm: 92,  nhip: 4, tien: [0, 3, 4, 0, 0, 5, 3, 4], giaiDieu: 'marimba', dem: 'arp', bass: 'chac', trong: 1, swing: 0,    echo: true,  mat: 'thua', hat: 149 }
   };
 
   /* Mẫu nhịp cho giai điệu: [vị trí bước (nửa phách), độ dài (bước)] */

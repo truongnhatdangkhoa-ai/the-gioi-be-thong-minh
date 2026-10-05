@@ -19,6 +19,7 @@ Trò chơi học tập vui nhộn cho bé, chạy thẳng trên trình duyệt, 
 | 🏹 Bắn nỏ (màn hình dọc) | `games/ban-no/` | 10 màn, mỗi màn 2 phút |
 | 🏎️ Đua xe | `games/dua-xe/` | 🟢 🟡 🔴 |
 | 🍭 Tiệm kẹo – bánh – kem | `games/tiem-keo-banh-kem/` | (không chia độ khó) |
+| 🧱 Xếp hình khối (Block Puzzle) | `games/xep-hinh-khoi/` | 🟢 🟡 🔴 |
 
 ## Các file dùng chung (thư mục `js/`)
 
@@ -106,3 +107,13 @@ Icon nằm ở `assets/icons/tro-choi/<id>.png` (nền trong suốt). Thay file 
 - Ở quầy Bánh có 2 món "lạ" (🧦, 🐟): cho vào thì tô chỉ lắc đầu nhẹ, bé chọn lại.
 - Làm xong một món: +10 điểm, +5 sao, mở thành tích "Đầu bếp nhí". Số món đã làm hiện trên thẻ trang chủ.
 - Thêm màu, vị kem, topping: sửa các mảng `MAU_KEO`, `VI_KEM`, `TOPPING_KEO`, `TOPPING_KEM`, `TRANG_TRI_BANH` ở đầu file `games/tiem-keo-banh-kem/tiem-keo-banh-kem.js`. Hình món ăn được vẽ bằng SVG trong `ve-mon.js`.
+
+## Xếp hình khối (Block Puzzle)
+
+- Bé **kéo khối từ khay (3 khối) thả vào bàn chơi**. Xếp đầy một **hàng hoặc một cột** thì hàng/cột đó nổ và biến mất; xóa cùng lúc nhiều hàng/cột cũng được. Trên điện thoại có thể **chạm khối rồi chạm vào bàn** thay cho kéo thả; trên máy tính rê chuột qua bàn sẽ thấy trước chỗ đặt. Khối kéo tự "hút" về ô vừa gần nhất, và trên cảm ứng khối nổi cao hơn ngón tay để bé nhìn thấy.
+- Nút 💡 **Gợi ý** chỉ chỗ đặt khối tốt nhất (ưu tiên chỗ xóa được hàng). Khi bỏ khối xuống, các hàng/cột sắp được xóa sẽ nhấp nháy.
+- **Mục tiêu**: Dễ = bàn 6×6, xóa 5 hàng · Trung bình = bàn 8×8, xóa 8 hàng · Khó = bàn 8×8, nhiều khối to và khối lạ, xóa 12 hàng. Đủ mục tiêu là thắng màn.
+- **Không có thua, không trừ điểm**: nếu không khối nào còn chỗ đặt, Gấu Mật dọn bớt hàng/cột đầy nhất giúp bé. Mỗi hàng/cột xóa được +10 điểm, cứ 3 lần liên tiếp thưởng +5 (dùng chung `diem-so.js`). Sao chấm theo số lần Gấu Mật phải dọn giúp: 0 lần = 3 sao, 1 lần = 2 sao, nhiều hơn = 1 sao.
+- Mỗi lần bốc khối mới luôn bảo đảm ít nhất 1 khối còn chỗ đặt.
+- Chỉnh độ khó: sửa `CAU_HINH_DO_KHO` đầu file `games/xep-hinh-khoi/xep-hinh-khoi.js` (`n` cỡ bàn, `mucTieu` số hàng cần xóa, `hinh` danh sách khối kèm trọng số: số càng lớn càng hay xuất hiện). Thêm kiểu khối mới: thêm một dòng vào `HINH_GOC` (danh sách `[hàng, cột]`; đặt `guong: true` nếu cần cả bản lật gương), game tự tạo các kiểu xoay. Đổi màu khối: sửa `BANG_MAU`.
+- Thành tích mới: Thợ xếp khối, Kiến trúc sư nhí (thắng mức Khó).

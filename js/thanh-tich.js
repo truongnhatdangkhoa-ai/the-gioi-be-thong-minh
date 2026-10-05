@@ -24,7 +24,9 @@ const ThanhTich = (function () {
     { id: 'tay-lai-lua', bieuTuong: '🏎️', ten: 'Tay lái lụa', moTa: 'Về đích trò Đua xe', dieuKien: function (d) { return daXong(d, 'dua-xe'); } },
     { id: 'lai-xe-an-toan', bieuTuong: '🛡️', ten: 'Lái xe an toàn', moTa: 'Về đích Đua xe mà không đụng vật cản nào', dieuKien: function (d) { const tc = d.troChoi['dua-xe']; return !!(tc && tc.khongVaCham); } },
     { id: 'tay-dua-sieu-hang', bieuTuong: '🥇', ten: 'Tay đua siêu hạng', moTa: 'Về đích Đua xe ở mức Khó', dieuKien: function (d) { const tc = d.troChoi['dua-xe']; return !!(tc && tc.doKhoDaXong && tc.doKhoDaXong.kho); } },
-    { id: 'dau-bep-nhi', bieuTuong: '🧁', ten: 'Đầu bếp nhí', moTa: 'Làm xong một món ở Tiệm kẹo – bánh – kem', dieuKien: function (d) { return daXong(d, 'tiem-keo-banh-kem'); } }
+    { id: 'dau-bep-nhi', bieuTuong: '🧁', ten: 'Đầu bếp nhí', moTa: 'Làm xong một món ở Tiệm kẹo – bánh – kem', dieuKien: function (d) { return daXong(d, 'tiem-keo-banh-kem'); } },
+    { id: 'tho-xep-khoi', bieuTuong: '🧱', ten: 'Thợ xếp khối', moTa: 'Thắng một màn Xếp hình khối', dieuKien: function (d) { return daXong(d, 'xep-hinh-khoi'); } },
+    { id: 'kien-truc-su-nhi', bieuTuong: '🏗️', ten: 'Kiến trúc sư nhí', moTa: 'Thắng Xếp hình khối ở mức Khó', dieuKien: function (d) { const tc = d.troChoi['xep-hinh-khoi']; return !!(tc && tc.doKhoDaXong && tc.doKhoDaXong.kho); } }
   ];
 
   function kiemTra() {
