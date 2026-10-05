@@ -73,3 +73,16 @@ body.dang-choi-no #khu-tro-choi { padding: clamp(.3rem, 1vw, .6rem); justify-con
 @media (max-width: 340px) {
   .luoi-man-no { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ---------- Laptop / iPad: khung chơi to hơn ---------- */
+@media (min-width: 700px) {
+  /* gọn thanh điểm phía trên khi đang chơi để khung chơi cao thêm */
+  body.dang-choi-no .thanh-trang-thai { padding-top: .25rem; padding-bottom: .25rem; }
+  body.dang-choi-no .thanh-trang-thai .nut-tron { width: 44px; height: 44px; min-height: 44px; }
+  body.dang-choi-no .trang-tro-choi { padding-bottom: .4rem; }
+  body.dang-choi-no #khu-tro-choi { padding: .3rem .5rem; }
+  /* hàng thông tin và thanh tiến độ rộng bằng khung chơi */
+  .man-ban-no .thanh-thong-tin,
+  .thanh-muc-tieu { max-width: min(100%, 44rem); }
+  .man-ban-no .o-thong-tin { font-size: 1rem; }
+}

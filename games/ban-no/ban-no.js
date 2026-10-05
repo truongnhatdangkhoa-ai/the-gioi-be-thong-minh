@@ -276,7 +276,9 @@
     function doiCo() {
       const r = bao.getBoundingClientRect();
       if (r.width < 10 || r.height < 10) return;
-      const ar = Math.min(r.width / r.height, 0.72);   // rộng tối đa 72% chiều cao
+      // Điện thoại/dọc: tối đa 72% chiều cao. Laptop/iPad ngang (cửa sổ rộng): cho rộng tới 100% chiều cao
+      const arToiDa = (r.width >= 640 && r.width / r.height > 0.9) ? 1.0 : 0.72;
+      const ar = Math.min(r.width / r.height, arToiDa);
       const w = Math.floor(Math.min(r.width, r.height * ar)), h = Math.floor(r.height);
       sanKhau.style.width = w + 'px';
       sanKhau.style.height = h + 'px';
@@ -286,7 +288,7 @@
       canvas.width = Math.round(W * dpr);
       canvas.height = Math.round(H * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      s = kep(W / 390, 0.7, 1.6);
+      s = kep(Math.min(W / 390, H / 560), 0.7, 1.8);   // co theo cả chiều rộng lẫn chiều cao
       noH = Math.min(150 * s, H * 0.28);
       const boNo = Math.max(30 * s, H * 0.055);
       groundTop = H - boNo;
