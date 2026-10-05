@@ -8,7 +8,7 @@
   'use strict';
 
   const ID = 'lat-hinh';
-  const THU_MUC_HINH = 'hinh/';
+  const THU_MUC_HINH = '../../assets/images/';
 
   /* ---------- 50 màn, chia thành 5 chặng, mỗi chặng 10 màn ----------
      Xong màn cuối của một chặng thì mở thêm chặng tiếp theo.

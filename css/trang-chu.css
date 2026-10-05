@@ -178,6 +178,7 @@
 .the-tro-choi .ten {
   position: relative;
   z-index: 1;
+  text-align: center; /* tên dài (xuống 2 dòng) vẫn nằm giữa thẻ */
   font-size: 1.5rem;
   font-weight: 900;
   text-shadow: 0 2px 0 rgba(0, 0, 0, .18);

@@ -80,6 +80,22 @@ const AmThanh = (function () {
       dao.start(t);
       dao.stop(t + 0.26);
     },
+    // Bắn nỏ: tiếng "tách" nhẹ khi bắn (bắn liên tục nên ngắn và nhỏ)
+    banNo: function (ba, t) {
+      not(ba, 330, t, 0.07, 'triangle', 0.09);
+      const dao = ba.createOscillator();
+      const am = ba.createGain();
+      dao.type = 'sine';
+      dao.frequency.setValueAtTime(820, t);
+      dao.frequency.exponentialRampToValueAtTime(260, t + 0.12);
+      am.gain.setValueAtTime(0.0001, t);
+      am.gain.exponentialRampToValueAtTime(0.045, t + 0.01);
+      am.gain.exponentialRampToValueAtTime(0.0001, t + 0.14);
+      dao.connect(am);
+      am.connect(ba.destination);
+      dao.start(t);
+      dao.stop(t + 0.16);
+    },
     noBong: function (ba, t) {
       const n = Math.floor(ba.sampleRate * 0.09);
       const bo = ba.createBuffer(1, n, ba.sampleRate);
@@ -111,6 +127,31 @@ const AmThanh = (function () {
     vaCham: function (ba, t) {
       not(ba, 150, t, 0.16, 'triangle', 0.14);
       not(ba, 105, t + 0.06, 0.2, 'triangle', 0.12);
+    },
+    // Tiệm kẹo – bánh – kem: rơi vào tô, đặt topping, trộn, nướng, lò kêu "ding", máy làm kẹo
+    bayVao: function (ba, t) {
+      not(ba, 740, t, 0.06, 'sine', 0.09);
+      not(ba, 494, t + 0.05, 0.1, 'sine', 0.08);
+    },
+    dat: function (ba, t) {
+      not(ba, 988, t, 0.06, 'triangle', 0.07);
+      not(ba, 1319, t + 0.05, 0.1, 'triangle', 0.06);
+    },
+    tron: function (ba, t) {
+      not(ba, 392, t, 0.09, 'triangle', 0.08);
+      not(ba, 440, t + 0.08, 0.09, 'triangle', 0.08);
+      not(ba, 392, t + 0.16, 0.12, 'triangle', 0.07);
+    },
+    nuong: function (ba, t) {
+      not(ba, 262, t, 0.25, 'sine', 0.07);
+      not(ba, 330, t + 0.12, 0.3, 'sine', 0.06);
+    },
+    ding: function (ba, t) {
+      not(ba, 1319, t, 0.5, 'sine', 0.1);
+      not(ba, 1760, t + 0.02, 0.35, 'sine', 0.05);
+    },
+    mayKeo: function (ba, t) {
+      [523, 659, 587, 740, 659, 784, 698, 880].forEach(function (f, i) { not(ba, f, t + i * 0.17, 0.1, 'triangle', 0.06); });
     }
   };
 

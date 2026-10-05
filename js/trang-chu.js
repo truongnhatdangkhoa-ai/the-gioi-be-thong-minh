@@ -26,8 +26,9 @@ const TrangChu = (function () {
   function veTienDo(troChoi) {
     const tc = LuuTru.layTroChoi(troChoi.id);
     if (!troChoi.coDoKho) {
-      return tc.soLanHoanThanh > 0
-        ? '<span class="tien-do-the">🖼️ Đã tô ' + tc.soLanHoanThanh + ' tranh</span>'
+      const n = troChoi.truongTienDo ? (tc[troChoi.truongTienDo] || 0) : tc.soLanHoanThanh;   // truongTienDo: lấy số liệu riêng của trò chơi
+      return (tc.soLanHoanThanh > 0 || n > 0)
+        ? '<span class="tien-do-the">' + (troChoi.nhanTienDo || '🖼️ Đã tô {n} tranh').replace('{n}', n) + '</span>'
         : '<span class="tien-do-the">✨ Chơi thử nhé</span>';
     }
     return '<span class="tien-do-the" aria-label="Độ khó đã hoàn thành">' +

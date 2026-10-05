@@ -22,11 +22,14 @@ const ThanhTich = (function () {
     { id: 'nha-tham-hiem', bieuTuong: '🗺️', ten: 'Nhà thám hiểm', moTa: 'Mở được chặng 2 của Lật hình', dieuKien: function (d) { return !!(d.troChoi['lat-hinh'] && d.troChoi['lat-hinh'].capDaMo > 10); } },
     { id: 'cung-thu-nhi', bieuTuong: '🏹', ten: 'Cung thủ nhí', moTa: 'Chơi xong trò Bắn cung', dieuKien: function (d) { return daXong(d, 'ban-cung'); } },
     { id: 'xa-thu-tai-ba', bieuTuong: '🎯', ten: 'Xạ thủ tài ba', moTa: 'Chơi xong Bắn cung ở mức Khó', dieuKien: function (d) { const tc = d.troChoi['ban-cung']; return !!(tc && tc.doKhoDaXong && tc.doKhoDaXong.kho); } },
+    { id: 'tho-san-no', bieuTuong: '🏹', ten: 'Thợ săn bắn nỏ', moTa: 'Qua màn đầu tiên của trò Bắn nỏ', dieuKien: function (d) { return daXong(d, 'ban-no'); } },
+    { id: 'than-no', bieuTuong: '🏅', ten: 'Thần nỏ', moTa: 'Vượt qua cả 10 màn Bắn nỏ', dieuKien: function (d) { return !!(d.troChoi['ban-no'] && d.troChoi['ban-no'].daXongTatCa); } },
     { id: 'ban-cua-loai-ca', bieuTuong: '🐠', ten: 'Bạn của loài cá', moTa: 'Chơi xong trò Cho cá ăn', dieuKien: function (d) { return daXong(d, 'cho-ca-an'); } },
     { id: 'tay-lai-lua', bieuTuong: '🏎️', ten: 'Tay lái lụa', moTa: 'Về đích trò Đua xe', dieuKien: function (d) { return daXong(d, 'dua-xe'); } },
     { id: 'lai-xe-an-toan', bieuTuong: '🛡️', ten: 'Lái xe an toàn', moTa: 'Về đích Đua xe mà không đụng vật cản nào', dieuKien: function (d) { const tc = d.troChoi['dua-xe']; return !!(tc && tc.khongVaCham); } },
     { id: 'tay-dua-sieu-hang', bieuTuong: '🥇', ten: 'Tay đua siêu hạng', moTa: 'Về đích Đua xe ở mức Khó', dieuKien: function (d) { const tc = d.troChoi['dua-xe']; return !!(tc && tc.doKhoDaXong && tc.doKhoDaXong.kho); } },
-    { id: 'be-gioi-toan', bieuTuong: '🔢', ten: 'Bé giỏi toán', moTa: 'Chơi xong trò Toán vui', dieuKien: function (d) { return daXong(d, 'toan-vui'); } }
+    { id: 'be-gioi-toan', bieuTuong: '🔢', ten: 'Bé giỏi toán', moTa: 'Chơi xong trò Toán vui', dieuKien: function (d) { return daXong(d, 'toan-vui'); } },
+    { id: 'dau-bep-nhi', bieuTuong: '🧁', ten: 'Đầu bếp nhí', moTa: 'Làm xong một món ở Tiệm kẹo – bánh – kem', dieuKien: function (d) { return daXong(d, 'tiem-keo-banh-kem'); } }
   ];
 
   function kiemTra() {

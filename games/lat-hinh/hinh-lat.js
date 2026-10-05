@@ -1,4 +1,4 @@
-/* Danh sách hình cho trò Lật hình (ảnh trong thư mục hinh/). nhom: con-vat | hoa | trai-cay */
+/* Danh sách hình cho trò Lật hình (ảnh trong assets/images/). nhom: con-vat | hoa | trai-cay */
 const HINH_LAT = [
   { id: 'cho', ten: 'Chó con', nhom: 'con-vat' },
   { id: 'voi', ten: 'Con voi', nhom: 'con-vat' },

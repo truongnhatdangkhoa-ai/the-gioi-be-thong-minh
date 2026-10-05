@@ -14,9 +14,11 @@ const App = (function () {
     { id: 'doan-con-vat', ten: 'Đoán con vật', bieuTuong: '🐶', mau: '#2fbf63', mauBong: '#1f9a4b', coDoKho: true },
     { id: 'lat-hinh', ten: 'Lật hình', bieuTuong: '🃏', mau: '#84cc16', mauBong: '#5f9a0c', coDoKho: true },
     { id: 'ban-cung', ten: 'Bắn cung', bieuTuong: '🏹', mau: '#e5484d', mauBong: '#b3282d', coDoKho: true },
+    { id: 'ban-no', ten: 'Bắn nỏ', bieuTuong: '🏹', mau: '#d946ef', mauBong: '#a21caf', coDoKho: false, nhanTienDo: '🎯 Đã qua {n}/10 màn', truongTienDo: 'daQuaMan' },
     { id: 'cho-ca-an', ten: 'Cho cá ăn', bieuTuong: '🐠', mau: '#0ea5e9', mauBong: '#0b7fb3', coDoKho: true },
     { id: 'dua-xe', ten: 'Đua xe', bieuTuong: '🏎️', mau: '#6366f1', mauBong: '#4648c9', coDoKho: true },
-    { id: 'toan-vui', ten: 'Toán vui', bieuTuong: '➕', mau: '#14b8b0', mauBong: '#0d8f89', coDoKho: true }
+    { id: 'toan-vui', ten: 'Toán vui', bieuTuong: '➕', mau: '#14b8b0', mauBong: '#0d8f89', coDoKho: true },
+    { id: 'tiem-keo-banh-kem', ten: 'Tiệm kẹo – bánh – kem', bieuTuong: '🍭', mau: '#f59e0b', mauBong: '#c27803', coDoKho: false, nhanTienDo: '🧁 Đã làm {n} món' }
   ];
 
   let duongDanGoc = '';
