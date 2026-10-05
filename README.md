@@ -20,8 +20,10 @@ Trò chơi học tập vui nhộn cho bé, chạy thẳng trên trình duyệt, 
 | ➕ Toán vui | `games/toan-vui/` | 🟢 🟡 🔴 |
 | 🃏 Lật hình | `games/lat-hinh/` | 50 màn, 5 chặng |
 | 🏹 Bắn cung | `games/ban-cung/` | 🟢 🟡 🔴 |
+| 🏹 Bắn nỏ (màn hình dọc) | `games/ban-no/` | 10 màn, mỗi màn 2 phút |
 | 🐠 Cho cá ăn | `games/cho-ca-an/` | 🟢 🟡 🔴 |
 | 🏎️ Đua xe | `games/dua-xe/` | 🟢 🟡 🔴 |
+| 🍭 Tiệm kẹo – bánh – kem | `games/tiem-keo-banh-kem/` | (không chia độ khó) |
 
 ## Các file dùng chung (thư mục `js/`)
 
@@ -45,7 +47,7 @@ Trò chơi học tập vui nhộn cho bé, chạy thẳng trên trình duyệt, 
 - 50 màn chia 5 chặng, mỗi chặng 10 màn (2 đến 24 cặp thẻ). Xong màn trước mới mở màn sau. Xong màn cuối của chặng thì mở thêm 10 màn mới.
 - Mỗi màn chấm 1–3 sao theo số lượt lật. Bé chọn chủ đề: Ngẫu nhiên, Con vật, Hoa, Cây trái; hình bốc ngẫu nhiên mỗi lần chơi.
 - Thêm chặng: thêm một dòng vào mảng `CHANG` trong `games/lat-hinh/lat-hinh.js` (10 số cặp + 10 thời gian xem trước).
-- Thêm hình: chép ảnh vuông vào `games/lat-hinh/hinh/` rồi thêm dòng `{ id, ten, nhom }` vào `hinh-lat.js` (id trùng tên file).
+- Thêm hình: chép ảnh vuông vào `assets/images/` rồi thêm dòng `{ id, ten, nhom }` vào `hinh-lat.js` (id trùng tên file).
 
 ## Bắn cung
 
@@ -53,6 +55,20 @@ Trò chơi học tập vui nhộn cho bé, chạy thẳng trên trình duyệt, 
 - Bóng xuất hiện ngẫu nhiên, 4 loại: **bóng thú bông** (gấu, thỏ, cừu, heo...), bóng màu, bóng trái tim, bóng sao vàng (nhỏ, bay nhanh, thưởng thêm 10 điểm). Bắn trúng bóng thú bông thì thú bông rơi ra và vào "bộ sưu tập" trên thanh thông tin.
 - Trúng 1 bóng: +10 điểm, 3 bóng liên tiếp: thưởng +5 (dùng chung `diem-so.js`). Bắn trượt chỉ mất chuỗi thưởng, không trừ điểm. Số bóng cần trúng: 8 / 12 / 16 theo độ khó. Sao chấm theo số mũi tên đã dùng.
 - Chỉnh độ khó: sửa `CAU_HINH_DO_KHO` trong `games/ban-cung/ban-cung.js`. Thêm thú bông: chép ảnh vào `assets/images/` rồi thêm dòng `{ id, ten }` vào `THU_BONG`.
+
+## Bắn nỏ (màn hình dọc)
+
+- Nỏ đứng giữa phía dưới màn hình. Bé **chạm vào chỗ muốn bắn**: nỏ xoay theo ngón tay và bắn ngay; **giữ tay thì bắn liên tục**, trượt ngón tay để quét hướng bắn. Mũi tên không giới hạn. Trên máy tính có thể dùng phím ← → để xoay và phím cách để bắn. Có nút ⏸️ tạm dừng.
+- Bóng và vật phẩm rơi từ trên xuống: **bóng tròn** (+5), **bong bóng thú bông** (+10), **trái tim** (+10), **trái cây** (+10), **sao vàng** (+20, nhỏ và nhanh).
+- **Quà** 🎁 rơi xuống, bắn trúng được: **+5**, **+10**, **+20 điểm**, hoặc phép màu kéo dài **10 giây**: 🏹 **bắn 3 mũi tên một lượt**, ✨ **điểm nhân đôi**, ⚡ **mũi tên xuyên** qua mọi vật. Phép màu hiện trên thanh thông tin kèm đồng hồ đếm ngược.
+- **10 màn, mỗi màn chơi đúng 2 phút**, mỗi màn một **bố cục rơi** và một **mục tiêu điểm** khác nhau. Hết giờ mà đủ điểm thì qua màn và mở màn kế tiếp; chưa đủ thì chơi lại (không bị trừ điểm). Sao chấm theo điểm: 1 sao = đạt mục tiêu, 2 sao = 140%, 3 sao = 180%.
+- 10 bố cục: Mưa bóng (rơi ngẫu nhiên) · Ba làn · Hàng ngang (5 vật cùng lúc) · Lắc lư · Chữ V · Hai bên (bay chéo vào giữa) · Vòng xoáy · Sao băng (chéo, nhanh) · Năm làn (mỗi làn một tốc độ) · Đại tiệc (trộn tất cả).
+- Chỉnh màn: sửa mảng `MAN` ở đầu `games/ban-no/ban-no.js` (`mucTieu` điểm qua màn, `toc` tốc độ rơi, `nhip` thời gian giữa 2 đợt, `co` cỡ vật, `boCuc`, `tiLe` tỉ lệ từng loại vật, `nen` màu nền). Thêm kiểu bố cục: thêm một hàm vào `BO_CUC` (trả về danh sách vật với vị trí và chuyển động).
+- Chỉnh quà: sửa mảng `QUA` (trọng số càng lớn càng hay rơi) và `THOI_GIAN_QUA`. Chỉnh điểm từng loại vật: `DIEM`.
+- **Ảnh nền riêng cho từng màn**: chép ảnh vào `games/ban-no/` rồi ghi tên file vào `anhNen` của màn đó (ví dụ `anhNen: 'nen-man-1.jpg'`). Ảnh tự phủ kín sân khấu; để `null` thì dùng nền vẽ đơn giản. Nên dùng ảnh dọc, tỉ lệ khoảng 9:16 (ví dụ 1080×1920).
+- Ảnh nỏ và mũi tên: `games/ban-no/no.png`, `games/ban-no/mui-ten.png` (đã tách nền; mũi tên có đầu bi vàng hướng lên). Thay file cùng tên là đổi hình.
+- Thử nhanh: thêm `?gio=15` vào địa chỉ trang để mỗi màn chỉ chơi 15 giây.
+- Thành tích mới: Thợ săn bắn nỏ, Thần nỏ (qua cả 10 màn).
 
 ## Cho cá ăn
 
@@ -94,6 +110,14 @@ Icon nằm ở `assets/icons/tro-choi/<id>.png` (nền trong suốt). Thay file 
 ## Ảnh trong trò chơi
 
 - Toàn bộ hình minh họa nằm ở `assets/images/<id>.png` (ảnh do bạn cung cấp, nền đã làm trong suốt). Trong code, viết `':id:'` (ví dụ `':cho:'`) ở chỗ cần hình; `js/anh.js` tự đổi thành ảnh.
-- Ghép hình dùng ảnh dựng sẵn ở `assets/images/ghep/<id>.png`; Lật hình dùng ảnh ở `games/lat-hinh/hinh/`.
+- Ghép hình dùng ảnh dựng sẵn ở `assets/images/ghep/<id>.png`; Lật hình dùng chung ảnh ở `assets/images/`.
 - Chưa có ảnh cho các chữ A, Ă, Â, E, I, P, U, Y nên Học chữ tạm chưa có các chữ này.
 - Tô màu vẫn dùng tranh nét đen cũ (bộ ảnh mẫu không có tranh tô).
+
+## Tiệm kẹo – bánh – kem
+
+- Dành cho bé chưa biết chữ: chọn bằng hình, có âm thanh và hiệu ứng, không có thua, không trừ điểm.
+- Ba quầy: 🍭 **Kẹo** (kiểu kẹo → màu → hình dạng → topping → máy làm kẹo), 🍰 **Bánh** (cho trứng, sữa, bột, đường vào tô bằng cách chạm hoặc kéo thả → trộn → nướng → trang trí → xong), 🍦 **Kem** (kiểu kem → vị → ốc quế / ly / cốc → topping → xong).
+- Ở quầy Bánh có 2 món "lạ" (🧦, 🐟): cho vào thì tô chỉ lắc đầu nhẹ, bé chọn lại.
+- Làm xong một món: +10 điểm, +5 sao, mở thành tích "Đầu bếp nhí". Số món đã làm hiện trên thẻ trang chủ.
+- Thêm màu, vị kem, topping: sửa các mảng `MAU_KEO`, `VI_KEM`, `TOPPING_KEO`, `TOPPING_KEM`, `TRANG_TRI_BANH` ở đầu file `games/tiem-keo-banh-kem/tiem-keo-banh-kem.js`. Hình món ăn được vẽ bằng SVG trong `ve-mon.js`.

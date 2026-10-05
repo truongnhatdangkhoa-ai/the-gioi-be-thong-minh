@@ -1,25 +1,43 @@
-HUONG DAN TAO FILE APK (GitHub tu build, khong can cai Android Studio)
+HUONG DAN TAO FILE APK + TU CAP NHAT (GitHub tu build, khong can cai Android Studio)
 
+CACH HOAT DONG
+  - APK chi la "vo" mo trang web cua game tren GitHub Pages.
+  - Moi lan ban sua code va push len GitHub -> Pages tu cap nhat -> app tren dien thoai
+    tu lay ban moi khi mo (co mang). KHONG can build lai APK, KHONG can cai lai.
+  - Co luu ban offline: da mo 1 lan co mang thi lan sau mat mang van choi duoc.
+  - Dang choi ma co ban moi: hien nut xanh "Co ban moi! Bam de cap nhat".
+
+LAM 1 LAN DUY NHAT
 BUOC 1: Dua toan bo thu muc nay len GitHub (giu nguyen thu muc .github)
-  - Lam theo HUONG-DAN-GITHUB.txt (bat file dua-len-github.bat la xong)
-  - Neu upload bang web: nho upload ca thu muc .github/workflows/build-apk.yml
+  - Lam theo HUONG-DAN-GITHUB.txt (bat dua-len-github.bat la xong)
+  - Neu upload bang web: nho upload ca thu muc .github/workflows
 
-BUOC 2: Cho GitHub build
-  - Vao repo > tab "Actions"
-  - Workflow "Build APK" se tu chay sau moi lan push (mat khoang 5-8 phut)
-  - Muon chay tay: chon "Build APK" > Run workflow
+BUOC 2: Bat Pages bang GitHub Actions (xem HUONG-DAN-PREVIEW.txt)
+  - Repo > Settings > Pages > Source: chon "GitHub Actions"
+  - Doi workflow "Deploy Preview (GitHub Pages)" xanh, mo thu link
+    https://TEN_GITHUB.github.io/the-gioi-be-thong-minh/ xem game chay chua.
+  - Repo phai de Public (Pages mien phi).
 
-BUOC 3: Tai APK
-  - Bam vao lan chay co dau tich xanh
-  - Keo xuong muc "Artifacts" > tai "the-gioi-be-thong-minh-apk" (file zip)
-  - Giai nen se co app-debug.apk
+BUOC 3: Build APK
+  - Tab "Actions" > "Build APK" > Run workflow (mat khoang 5-8 phut)
+  - Bam vao lan chay co dau tich xanh > muc "Artifacts" > tai
+    "the-gioi-be-thong-minh-apk" (file zip) > giai nen ra app-debug.apk
 
 BUOC 4: Cai len dien thoai Android
-  - Gui app-debug.apk qua Zalo/Drive/cap USB
-  - Mo file, cho phep "Cai ung dung tu nguon khong xac dinh" khi duoc hoi
-  - Bam Cai dat
+  - Gui app-debug.apk qua Zalo/Drive/cap USB, mo file
+  - Cho phep "Cai ung dung tu nguon khong xac dinh" khi duoc hoi > Cai dat
+  - Lan mo dau tien PHAI co mang.
+
+CAP NHAT SAU NAY (khong build lai APK)
+  - Sua code > push len GitHub (dua-len-github.bat) > doi ~1 phut
+  - Mo lai app tren dien thoai (co mang) la thay ban moi.
+
+CHI KHI NAO CAN BUILD LAI APK
+  - Doi ten app, doi icon app, them quyen Android -> chay lai "Build APK",
+    go app cu roi cai file moi (moi lan build ky bang khoa khac nhau nen khong cai de len duoc).
 
 Luu y:
   - Day la ban debug, cai tren may ca nhan duoc, KHONG dung de dang Google Play.
   - iPhone khong cai duoc APK; dung link GitHub Pages va "Them vao man hinh chinh".
+  - Diem so luu tren dien thoai (localStorage); go app thi mat diem.
   - Neu build loi, vao Actions > bam vao lan chay loi > gui dong loi do cho minh.
