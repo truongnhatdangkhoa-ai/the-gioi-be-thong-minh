@@ -167,6 +167,7 @@ const AmThanh = (function () {
     const moi = !dangBat();
     LuuTru.capNhat(function (d) { d.caiDat.amThanh = moi; });
     if (moi) phat('nhan');
+    if (typeof NhacNen !== 'undefined') NhacNen.capNhat();   // nhạc nền bật/tắt theo âm thanh chung
     return moi;
   }
 

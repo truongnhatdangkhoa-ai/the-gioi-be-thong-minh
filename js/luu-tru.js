@@ -18,7 +18,7 @@ const LuuTru = (function () {
       capDo: 1,
       thanhTich: {},   // { idThanhTich: thờiĐiểmMởKhóa }
       troChoi: {},     // { idTroChoi: { soLanHoanThanh, doKhoDaXong, diemCaoNhat, lanChoiCuoi } }
-      caiDat: { amThanh: true, daHoiTen: false, toanManHinh: false }
+      caiDat: { amThanh: true, nhacNen: true, daHoiTen: false, toanManHinh: false }
     };
   }
 

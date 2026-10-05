@@ -336,6 +336,7 @@ const App = (function () {
       '<label class="nhan-o-nhap" for="o-ten-be">Tên của bé</label>' +
       '<input id="o-ten-be" class="o-nhap" maxlength="20" autocomplete="off" placeholder="Ví dụ: Bin, Na, Bống" value="' + thoatHtml(d.tenNguoiChoi) + '">' +
       '<button type="button" class="nut nut-trang nut-rong" id="nut-cai-dat-am-thanh">' + (AmThanh.dangBat() ? '🔊 Âm thanh: Đang bật' : '🔇 Âm thanh: Đang tắt') + '</button>' +
+      '<button type="button" class="nut nut-trang nut-rong" id="nut-cai-dat-nhac-nen">' + (NhacNen.dangBatNhac() ? '🎵 Nhạc nền: Đang bật' : '🎵 Nhạc nền: Đang tắt') + '</button>' +
       '<button type="button" class="nut nut-trang nut-rong nut-nguy-hiem" id="nut-xoa-du-lieu">🧹 Chơi lại từ đầu</button>' +
       '<p class="ghi-chu">Dữ liệu chỉ lưu trên máy này, không gửi đi đâu cả.</p>';
     const hd = hopThoai({
@@ -354,6 +355,10 @@ const App = (function () {
       const bat = AmThanh.batTat();
       e.currentTarget.textContent = bat ? '🔊 Âm thanh: Đang bật' : '🔇 Âm thanh: Đang tắt';
       capNhatNutAmThanh();
+    });
+    hop.querySelector('#nut-cai-dat-nhac-nen').addEventListener('click', function (e) {
+      const bat = NhacNen.batTatNhac();
+      e.currentTarget.textContent = bat ? '🎵 Nhạc nền: Đang bật' : '🎵 Nhạc nền: Đang tắt';
     });
     hop.querySelector('#nut-xoa-du-lieu').addEventListener('click', function () {
       hd.dong();
